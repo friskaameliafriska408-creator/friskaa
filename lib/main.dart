@@ -1,91 +1,135 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(Coba());
+}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  static const String _title = 'Flutter Stateful Clicker Counter';
-  // This widget is the root of your application.
+class Coba extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-  // This class is the configuration for the state.
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: const Text('Flutter Demo Click Counter'),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: const TextStyle(fontSize: 25),
-            ),
-          ],
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Sumber Taman'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              // FOTO
+              Container(
+                width: double.infinity,
+                child: Image.asset(
+                  'assets/sumber_taman.jpeg',
+                  height: 250,
+                  fit: BoxFit.cover,
+                ),
+              ),
+
+              // JUDUL
+              Container(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  'Sejarah Singkat Sumber Taman',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+
+              // SEJARAH
+              Container(
+                padding: EdgeInsets.fromLTRB(16, 0, 16, 20),
+                child: Text(
+                  'Sumber Taman merupakan salah satu sumber mata air '
+                  'yang berada di Kabupaten Malang, Jawa Timur. Sumber '
+                  'ini dikenal memiliki air yang jernih dan suasana '
+                  'alam yang masih asri.\n\n'
+                  'Sejak dahulu, Sumber Taman dimanfaatkan oleh masyarakat '
+                  'sekitar sebagai sumber air untuk memenuhi kebutuhan '
+                  'sehari-hari. Keberadaan sumber mata air ini juga menjadi '
+                  'bagian dari kehidupan masyarakat setempat.\n\n'
+                  'Seiring berjalannya waktu, kawasan Sumber Taman '
+                  'dikembangkan menjadi tempat wisata yang dapat dikunjungi '
+                  'oleh masyarakat. Keindahan alam, air yang jernih, dan '
+                  'suasana yang sejuk menjadi daya tarik bagi para pengunjung.\n\n'
+                  'Hingga saat ini, Sumber Taman menjadi salah satu tempat '
+                  'yang menarik untuk menikmati suasana alam sekaligus '
+                  'mengenal keberadaan sumber mata air yang memiliki nilai '
+                  'bagi masyarakat sekitar.',
+                  style: TextStyle(
+                    fontSize: 16,
+                    height: 1.5,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+
+              // LOKASI DAN KONTAK
+              Container(
+                padding: EdgeInsets.all(16),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // LOKASI
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Lokasi',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Sumber Taman\n'
+                            'Kabupaten Malang,\n'
+                            'Jawa Timur',
+                            style: TextStyle(
+                              fontSize: 14,
+                              height: 1.5,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // CONTACT
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Contact Saya',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'No. HP:\n'
+                            '089697120312\n\n'
+                            'Email:\n'
+                            'friskaameliafriska408@gmail.com',
+                            style: TextStyle(
+                              fontSize: 14,
+                              height: 1.5,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
